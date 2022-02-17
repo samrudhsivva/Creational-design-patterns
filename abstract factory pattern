@@ -60,6 +60,7 @@ class ComedyMovieFactory implements IMovieFactory{
 
 public class AbstractFactoryEx{
     public static void main(String[] args){
+        System.out.println(" *** ABSTRACT FACTORY PATTERN DEMO *** ");
         ActionMovieFactory actionmovies= new ActionMovieFactory();
         ITollywoodMovie TelAction=actionmovies.getTollyWoodMovie();
         IBollywoodMovie BolAction=actionmovies.getBollyWoodMovie();
