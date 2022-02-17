@@ -1,0 +1,85 @@
+interface ITollywoodMovie {
+    public String getName();
+}
+
+interface IBollywoodMovie {
+    public String getName();
+}
+
+interface IMovieFactory{
+    public ITollywoodMovie getTollyWoodMovie();
+    public IBollywoodMovie getBollyWoodMovie();
+    
+}
+
+class TollywoodActionMovie implements ITollywoodMovie{
+    public String getName(){
+        return "Kranthi is a Tollywood Action moviie";
+    }
+
+}
+
+class TollywoodComedyMovie implements ITollywoodMovie{
+    public String getName(){
+        return "BasantaBilap is a Tollywood Comedy movie";
+    }
+
+}
+
+class BollywoodActionMovie implements IBollywoodMovie{
+    public String getName(){
+        return "BangBang is a Bollywood Action movie";
+    }
+
+}
+
+class BollywoodComedyMovie implements IBollywoodMovie{
+    public String getName(){
+        return "MunnaBhai is a Bollywood Comedy movie";
+    }
+
+}
+
+class ActionMovieFactory implements IMovieFactory{
+    public ITollywoodMovie getTollyWoodMovie(){
+        return new TollywoodActionMovie();
+    }
+    public IBollywoodMovie getBollyWoodMovie(){
+        return new BollywoodActionMovie();
+    }
+}
+
+class ComedyMovieFactory implements IMovieFactory{
+    public ITollywoodMovie getTollyWoodMovie(){
+        return new TollywoodComedyMovie();
+    }
+    public IBollywoodMovie getBollyWoodMovie(){
+        return new BollywoodComedyMovie();
+    }
+}
+
+public class AbstractFactoryEx{
+    public static void main(String[] args){
+        ActionMovieFactory actionmovies= new ActionMovieFactory();
+        ITollywoodMovie TelAction=actionmovies.getTollyWoodMovie();
+        IBollywoodMovie BolAction=actionmovies.getBollyWoodMovie();
+
+        System.out.println("Action movies are:");
+        System.out.println(TelAction.getName());
+        System.out.println(BolAction.getName());
+
+        ComedyMovieFactory comedymovies= new ComedyMovieFactory();
+        ITollywoodMovie TelComedy=comedymovies.getTollyWoodMovie();
+        IBollywoodMovie BolComedy=comedymovies.getBollyWoodMovie();
+
+        System.out.println("Comedy movies are:");
+        System.out.println(TelComedy.getName());
+        System.out.println(BolComedy.getName());
+
+
+
+
+
+        
+    }
+}
